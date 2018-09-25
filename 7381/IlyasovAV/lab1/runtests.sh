@@ -1,19 +1,32 @@
-echo -n > result.txt
+#!/bin/bash
+echo -n > testsresult.txt
 
-echo "Test1 input: 123.456"
-./lab1 < Tests/test1.txt
+echo "Примеры корректных входных данных: "
 
-echo "Test2 input: 123E456"
-./lab1 < Tests/test2.txt
+echo "Тест1: 123.456"
+echo "Тест 1: " >> testsresult.txt
+./lab1 < Tests/test1.txt >> testsresult.txt
 
-echo "Test3 input: 123.456E789"
-./lab1 < Tests/test3.txt
+echo "Тест2: 123E456"
+echo "Тест 2: " >> testsresult.txt
+./lab1 < Tests/test2.txt >> testsresult.txt
 
-echo "Test4 input: 1E+456"
-./lab1 < Tests/test4.txt
+echo "Тест3: 123.456E789"
+echo "Тест 3: " >> testsresult.txt
+./lab1 < Tests/test3.txt >> testsresult.txt
 
-echo "Test5 input: 123456"
-./lab1 < Tests/test5.txt
+echo "Тест4: 1E+456"
+echo "Тест 4: " >> testsresult.txt
+./lab1 < Tests/test4.txt >> testsresult.txt
 
-echo "Test6 input: hello world"
-./lab1 < Tests/test6.txt
+echo "Примеры некорректных входных данных: "
+
+echo "Тест5: 123456"
+echo "Тест 5: " >> testsresult.txt
+./lab1 < Tests/test5.txt >> testsresult.txt
+
+echo "Тест6: hello world"
+echo "Тест 6: " >> testsresult.txt
+./lab1 < Tests/test6.txt >> testsresult.txt
+
+echo "Результаты тестов сохранены в файл testsresult.txt"

@@ -52,7 +52,7 @@ int isInteger(char *string, int deepCount) {
 
 	tabs(deepCount);
 	printf("Вызов функции isInteger для %s:\n", string);
-	
+
 	int interimResult = 1;
 	char *interimString = string;
 	if (string[0] == '+')
@@ -74,7 +74,7 @@ int isInteger(char *string, int deepCount) {
 
 void isRealNumber(char *string) {
 
-	printf("\nВызов функции isRealNumber для %s:\n", string);
+	printf("Вызов функции isRealNumber для %s:\n", string);
 
 	int result = 1;
 	char *firstPart;									// Указатели
@@ -111,22 +111,21 @@ void isRealNumber(char *string) {
 	else {											// В противном случае строка
 		result = 0;									// не удовлетворяет заданному условию
 	}
-	
+
 	printf("Завершение функции isRealNumber, результат: ");
-	printf(result ? "Это вещественное число!\n" : "Это не вещественное число!\n");
+	printf(result ? "Это вещественное число!\n\n" : "Это не вещественное число!\n\n");
 }
 
 int main() {
 	setlocale(LC_ALL, "Russian");
 	char *input_data = malloc(sizeof(char) * 200);
-	fgets(input_data, 20, stdin);
+
+	fgets(input_data, 200, stdin);
 	if (input_data[strlen(input_data) - 1] == '\n')
 		input_data[strlen(input_data) - 1] = '\0';
 
-	freopen("result.txt", "a+", stdout); 							// Перенаправление потока вывода в файл
 	isRealNumber(input_data);
-	fclose (stdout); 									// Закрытие потока вывода
-	
+
 	free(input_data);
 	return 0;
 }
