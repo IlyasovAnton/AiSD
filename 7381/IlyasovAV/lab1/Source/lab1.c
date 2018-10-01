@@ -55,7 +55,7 @@ int isInteger(char *string, int deepCount) {
 
 	int interimResult = 1;
 	char *interimString = string;
-	if (string[0] == '+')
+	if (string[0] == '+' && string[0] == '-')
 		string = string + 1;
 
 	if (!strlen(string)) {
