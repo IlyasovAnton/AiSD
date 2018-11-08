@@ -18,6 +18,7 @@ class Stack {
     
 		size_t size() const;
 		bool empty() const;
+		void print_stack();
 
 		~Stack();
 };
@@ -31,6 +32,10 @@ Stack<Type>::Stack() {
 
 template <class Type>
 Type Stack<Type>::top() {
+	if (empty()) {
+		std::cout << "Error! Stack is empty" << std::endl;
+		exit(0);
+	}
 	return _data[_top - 1];
 }
 
@@ -63,6 +68,17 @@ size_t Stack<Type>::size() const {
 template <class Type>
 bool Stack<Type>::empty() const {
 	return !_top;
+}
+
+template <class Type>
+void Stack<Type>::print_stack() {
+	std::cout << "\tStack:  ";
+	if (empty())
+		std::cout << "Stack is empty";
+	else
+		for (int index = _top-1; index >= 0; index--)
+			std::cout << _data[index] << " ";
+	std::cout << std::endl;
 }
 
 template <class Type>
